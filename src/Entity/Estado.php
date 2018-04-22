@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,6 +27,16 @@ class Estado
      * @ORM\Column(type="string", length=2)
      */
     private $sigla;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Cidade", mappedBy="estado")
+     */
+    private $cidades;
+
+    public function __construct()
+    {
+        $this->cidades = new ArrayCollection();
+    }
 
     public function getId()
     {
@@ -53,5 +65,41 @@ class Estado
         $this->sigla = $sigla;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|Cidade[]
+     */
+    public function getCidades(): Collection
+    {
+        return $this->cidades;
+    }
+
+    public function addCidade(Cidade $cidade): self
+    {
+        if (!$this->cidades->contains($cidade)) {
+            $this->cidades[] = $cidade;
+            $cidade->setEstado($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCidade(Cidade $cidade): self
+    {
+        if ($this->cidades->contains($cidade)) {
+            $this->cidades->removeElement($cidade);
+            // set the owning side to null (unless already changed)
+            if ($cidade->getEstado() === $this) {
+                $cidade->setEstado(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->nome;
     }
 }
