@@ -3,8 +3,43 @@ body{
     font-weight: 100;
 }
 
+body header section.menu ul{
+    padding: 0px;
+    margin: auto;
+}
+
+body main{
+    padding: 20px 0px;
+}
+
+body footer section.copyright{
+    padding: 20px 0px;
+    background-color: #3b8a3b;
+    color: white;
+    font-weight: 300;
+}
+
+body header section.menu ul li a{
+    color: white;
+}
+
 body header section.menu ul li {
     display: table-cell;
     width: 1%;
     text-align: center;
+}
+
+body header section.menu{
+    padding: 10px 0px;
+    background-color: #5252ff;
+}
+
+body header section.logo .slogan h2{
+    color: white;
+    font-weight: 300;
+}
+
+body header section.logo{
+    padding: 20px 0px;
+    background-color: #ff6060;
 }
