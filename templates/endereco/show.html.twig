@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Endereco{% endblock %}
+
+{% block body %}
+    <h1>Endereco</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ endereco.id }}</td>
+            </tr>
+            <tr>
+                <th>Logradouro</th>
+                <td>{{ endereco.logradouro }}</td>
+            </tr>
+            <tr>
+                <th>Numero</th>
+                <td>{{ endereco.numero }}</td>
+            </tr>
+            <tr>
+                <th>Complemento</th>
+                <td>{{ endereco.complemento }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('endereco_index') }}">back to list</a>
+
+    <a href="{{ path('endereco_edit', {'id': endereco.id}) }}">edit</a>
+
+    {{ include('endereco/_delete_form.html.twig') }}
+{% endblock %}

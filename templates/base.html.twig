@@ -20,7 +20,13 @@
                 <div class="container">
                     <ul>
                         <li>
-                            <a href="#">Example</a>
+                            <a href="{{ path("estado_index") }}">Controlador dos Estados</a>
+                        </li>
+                        <li>
+                            <a href="{{ path("cidade_index") }}">Controlador das Cidades</a>
+                        </li>
+                        <li>
+                            <a href="{{ path("endereco_index") }}">Controlador dos Endereços</a>
                         </li>
                         {% block menu %}{% endblock %}
                     </ul>

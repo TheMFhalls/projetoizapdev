@@ -2,3 +2,9 @@ body{
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
 }
+
+body header section.menu ul li {
+    display: table-cell;
+    width: 1%;
+    text-align: center;
+}
