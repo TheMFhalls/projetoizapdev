@@ -5,7 +5,22 @@
 {% block body %}
     <h2 class="text-center">Cadastrar Endereço</h2>
 
+    <label for="find_by_cep">Busque o endereço pelo seu CEP:</label>
+    <input type="text" id="find_by_cep" class="form-control" />
+    <button class="btn btn-info mb-10" onclick="javascript:find_by_cep($('#find_by_cep').val());">
+        Buscar pelo CEP
+    </button>
+
     {{ include('endereco/_form.html.twig', {'button_label': 'Cadastrar'}) }}
 
     <a href="{{ path('endereco_index') }}" class="btn btn-warning mt-10">Voltar para a Listagem</a>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset("js/jquery.mask.js") }}"></script>
+    <script src="{{ asset("js/endereco/script.js") }}"></script>
+    <script>
+        $(document).ready(function(){
+           $("#find_by_cep").mask("00000000");
+        });
+    </script>
 {% endblock %}

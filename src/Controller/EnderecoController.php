@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Endereco;
 use App\Form\EnderecoType;
 use App\Repository\EnderecoRepository;
+use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -86,5 +87,22 @@ class EnderecoController extends Controller
         }
 
         return $this->redirectToRoute('endereco_index');
+    }
+
+    /**
+     * @Route("/find_by_cep/{cep}", name="find_by_cep", methods="GET")
+     */
+    public function find_by_cep($cep)
+    {
+        try{
+            $content = file_get_contents("https://viacep.com.br/ws/$cep/json/");
+
+            $response = new Response($content);
+            $response->headers->set('Content-Type', 'application/json');
+
+            return $response;
+        }catch(Exception $e){
+            echo $e->getMessage();
+        }
     }
 }
