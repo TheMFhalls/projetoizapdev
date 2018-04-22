@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cidade{% endblock %}
+{% block title %} - Visualizar Cidade{% endblock %}
 
 {% block body %}
-    <h1>Cidade</h1>
+    <h2 class="text-center">Visualizar Cidade</h2>
 
     <table class="table">
         <tbody>
@@ -18,9 +18,8 @@
         </tbody>
     </table>
 
-    <a href="{{ path('cidade_index') }}">back to list</a>
-
-    <a href="{{ path('cidade_edit', {'id': cidade.id}) }}">edit</a>
+'
+    <a href="{{ path('cidade_edit', {'id': cidade.id}) }}" class="btn btn-info">Editar esta Cidade</a>
 
     {{ include('cidade/_delete_form.html.twig') }}
 {% endblock %}

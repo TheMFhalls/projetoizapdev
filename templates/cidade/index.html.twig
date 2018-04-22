@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cidade index{% endblock %}
+{% block title %} - Listagem de Cidades{% endblock %}
 
 {% block body %}
-    <h1>Cidade index</h1>
+    <h2 class="text-center">Listagem de Cidades</h2>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nome</th>
-                <th>actions</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -19,17 +19,17 @@
                 <td>{{ cidade.id }}</td>
                 <td>{{ cidade.nome }}</td>
                 <td>
-                    <a href="{{ path('cidade_show', {'id': cidade.id}) }}">show</a>
-                    <a href="{{ path('cidade_edit', {'id': cidade.id}) }}">edit</a>
+                    <a href="{{ path('cidade_show', {'id': cidade.id}) }}" class="btn btn-warning">Visualizar</a>
+                    <a href="{{ path('cidade_edit', {'id': cidade.id}) }}" class="btn btn-info">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3" class="text-center">-- Nenhuma cidade cadastrada --</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('cidade_new') }}">Create new</a>
+    <a href="{{ path('cidade_new') }}" class="btn btn-success">Criar nova Cidade</a>
 {% endblock %}

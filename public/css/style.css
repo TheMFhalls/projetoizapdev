@@ -1,3 +1,7 @@
+.mt-10{
+    margin-top: 10px;
+}
+
 body{
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
@@ -21,6 +25,7 @@ body footer section.copyright{
 
 body header section.menu ul li a{
     color: white;
+    font-weight: 500;
 }
 
 body header section.menu ul li {

@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Cidade{% endblock %}
+{% block title %} - Cadastrar Cidade{% endblock %}
 
 {% block body %}
-    <h1>Create new Cidade</h1>
+    <h2 class="text-center">Cadastrar Cidade</h2>
 
-    {{ include('cidade/_form.html.twig') }}
+    {{ include('cidade/_form.html.twig', {'button_label': 'Cadastrar'}) }}
 
-    <a href="{{ path('cidade_index') }}">back to list</a>
+    <a href="{{ path('cidade_index') }}" class="btn btn-warning mt-10">Voltar para a Listagem</a>
 {% endblock %}

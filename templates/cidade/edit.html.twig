@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Cidade{% endblock %}
+{% block title %} - Editar Cidade{% endblock %}
 
 {% block body %}
-    <h1>Edit Cidade</h1>
+    <h2 class="text-center">Editar Cidade</h2>
 
-    {{ include('cidade/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('cidade/_form.html.twig', {'button_label': 'Atualizar'}) }}
 
-    <a href="{{ path('cidade_index') }}">back to list</a>
+    <a href="{{ path('cidade_index') }}" class="btn btn-warning mt-10">Voltar para a Listagem</a>
 
     {{ include('cidade/_delete_form.html.twig') }}
 {% endblock %}
