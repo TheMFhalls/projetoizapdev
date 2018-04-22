@@ -37,6 +37,11 @@ class Endereco
      */
     private $cidade;
 
+    /**
+     * @ORM\Column(type="string", length=150, nullable=true)
+     */
+    private $bairro;
+
     public function getId()
     {
         return $this->id;
@@ -86,6 +91,18 @@ class Endereco
     public function setCidade(?Cidade $cidade): self
     {
         $this->cidade = $cidade;
+
+        return $this;
+    }
+
+    public function getBairro(): ?string
+    {
+        return $this->bairro;
+    }
+
+    public function setBairro(?string $bairro): self
+    {
+        $this->bairro = $bairro;
 
         return $this;
     }

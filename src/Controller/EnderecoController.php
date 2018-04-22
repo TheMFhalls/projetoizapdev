@@ -92,7 +92,7 @@ class EnderecoController extends Controller
     /**
      * @Route("/find_by_cep/{cep}", name="find_by_cep", methods="GET")
      */
-    public function find_by_cep($cep)
+    public function find_by_cep(Int $cep)
     {
         try{
             $content = file_get_contents("https://viacep.com.br/ws/$cep/json/");
