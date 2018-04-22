@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Estado{% endblock %}
+{% block title %} - Visualizar Estado{% endblock %}
 
 {% block body %}
-    <h1>Estado</h1>
+    <h2 class="text-center">Visualizar Estado</h2>
 
     <table class="table">
         <tbody>
@@ -22,9 +22,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('estado_index') }}">back to list</a>
+    <a href="{{ path('estado_index') }}" class="btn btn-warning">Voltar para a Listagem</a>
 
-    <a href="{{ path('estado_edit', {'id': estado.id}) }}">edit</a>
+    <a href="{{ path('estado_edit', {'id': estado.id}) }}" class="btn btn-info">Editar este Estado</a>
 
     {{ include('estado/_delete_form.html.twig') }}
 {% endblock %}

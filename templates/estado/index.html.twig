@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Estado index{% endblock %}
+{% block title %} - Listagem de Estados{% endblock %}
 
 {% block body %}
-    <h1>Estado index</h1>
+    <h2 class="text-center">Listagem de Estados</h2>
 
     <table class="table">
         <thead>
@@ -21,17 +21,17 @@
                 <td>{{ estado.nome }}</td>
                 <td>{{ estado.sigla }}</td>
                 <td>
-                    <a href="{{ path('estado_show', {'id': estado.id}) }}">show</a>
-                    <a href="{{ path('estado_edit', {'id': estado.id}) }}">edit</a>
+                    <a href="{{ path('estado_show', {'id': estado.id}) }}" class="btn btn-warning">Visualizar</a>
+                    <a href="{{ path('estado_edit', {'id': estado.id}) }}" class="btn btn-info">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4" class="text-center">-- Nenhum estado cadastrado --</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('estado_new') }}">Create new</a>
+    <a href="{{ path('estado_new') }}" class="btn btn-success">Cadastrar novo Estado</a>
 {% endblock %}

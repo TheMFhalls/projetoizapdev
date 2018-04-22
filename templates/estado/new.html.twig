@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} - Criar novo Estado{% endblock %}
+{% block title %} - Cadastrar Estado{% endblock %}
 
 {% block body %}
-    <h1>Create new Estado</h1>
+    <h2 class="text-center">Cadastrar Estado</h2>
 
-    {{ include('estado/_form.html.twig') }}
+    {{ include('estado/_form.html.twig', {'button_label': 'Cadastrar'}) }}
 
-    <a href="{{ path('estado_index') }}">back to list</a>
+    <a href="{{ path('estado_index') }}" class="btn btn-warning mt-10">Voltar para a Listagem</a>
 {% endblock %}
