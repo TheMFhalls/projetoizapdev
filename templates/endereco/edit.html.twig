@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Endereco{% endblock %}
+{% block title %} - Editar Endereço{% endblock %}
 
 {% block body %}
-    <h1>Edit Endereco</h1>
+    <h2 class="text-center">Editar Endereço</h2>
 
     {{ include('endereco/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('endereco_index') }}">back to list</a>
+    <a href="{{ path('endereco_index') }}" class="btn btn-warning mt-10">Voltar para a Listagem</a>
 
     {{ include('endereco/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Endereco{% endblock %}
+{% block title %} - Cadastrar Endereço{% endblock %}
 
 {% block body %}
-    <h1>Create new Endereco</h1>
+    <h2 class="text-center">Cadastrar Endereço</h2>
 
-    {{ include('endereco/_form.html.twig') }}
+    {{ include('endereco/_form.html.twig', {'button_label': 'Cadastrar'}) }}
 
-    <a href="{{ path('endereco_index') }}">back to list</a>
+    <a href="{{ path('endereco_index') }}" class="btn btn-warning mt-10">Voltar para a Listagem</a>
 {% endblock %}

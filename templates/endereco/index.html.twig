@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Endereco index{% endblock %}
+{% block title %} - Listagem de Endereços{% endblock %}
 
 {% block body %}
-    <h1>Endereco index</h1>
+    <h2 class="text-center">Listagem de Endereços</h2>
 
     <table class="table">
         <thead>
@@ -23,17 +23,17 @@
                 <td>{{ endereco.numero }}</td>
                 <td>{{ endereco.complemento }}</td>
                 <td>
-                    <a href="{{ path('endereco_show', {'id': endereco.id}) }}">show</a>
-                    <a href="{{ path('endereco_edit', {'id': endereco.id}) }}">edit</a>
+                    <a href="{{ path('endereco_show', {'id': endereco.id}) }}" class="btn btn-warning">Visualizar</a>
+                    <a href="{{ path('endereco_edit', {'id': endereco.id}) }}" class="btn btn-info">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5" class="text-center">-- Nenhum endereço cadastrado --</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('endereco_new') }}">Create new</a>
+    <a href="{{ path('endereco_new') }}" class="btn btn-success">Cadastrar novo Endereço</a>
 {% endblock %}

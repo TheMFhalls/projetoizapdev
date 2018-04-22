@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Endereco{% endblock %}
+{% block title %} - Visualizar Endereço{% endblock %}
 
 {% block body %}
-    <h1>Endereco</h1>
+    <h2 class="text-center">Visualizar Endereço</h2>
 
     <table class="table">
         <tbody>
@@ -26,9 +26,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('endereco_index') }}">back to list</a>
+    <a href="{{ path('endereco_index') }}" class="btn btn-warning">Voltar para a Listagem</a>
 
-    <a href="{{ path('endereco_edit', {'id': endereco.id}) }}">edit</a>
+    <a href="{{ path('endereco_edit', {'id': endereco.id}) }}" class="btn btn-info">Editar este Endereço</a>
 
     {{ include('endereco/_delete_form.html.twig') }}
 {% endblock %}
