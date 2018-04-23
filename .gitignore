@@ -22,3 +22,5 @@ yarn-error.log
 ###< symfony/web-server-bundle ###
 
 /.idea/*
+heredes.pem
+start_server.sh
