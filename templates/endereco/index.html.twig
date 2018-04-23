@@ -12,6 +12,7 @@
                 <th>Logradouro</th>
                 <th>Numero</th>
                 <th>Complemento</th>
+                <th>Bairro</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                 <td>{{ endereco.logradouro }}</td>
                 <td>{{ endereco.numero }}</td>
                 <td>{{ endereco.complemento }}</td>
+                <td>{{ endereco.bairro }}</td>
                 <td>
                     <a href="{{ path('endereco_show', {'id': endereco.id}) }}" class="btn btn-warning">Visualizar</a>
                     <a href="{{ path('endereco_edit', {'id': endereco.id}) }}" class="btn btn-info">Editar</a>
@@ -29,7 +31,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5" class="text-center">-- Nenhum endereço cadastrado --</td>
+                <td colspan="6" class="text-center">-- Nenhum endereço cadastrado --</td>
             </tr>
         {% endfor %}
         </tbody>

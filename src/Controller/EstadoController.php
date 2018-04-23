@@ -24,6 +24,29 @@ class EstadoController extends Controller
     }
 
     /**
+     * @Route("/find_json_estados", name="find_json_estados", methods="GET")
+     */
+    public function find_json_estados(EstadoRepository $estadoRepository): Response
+    {
+        foreach($estadoRepository->findAll() as $estado){
+            $estados[] = [
+                "id" => $estado->getId(),
+                "nome" => $estado->getNome()
+            ];
+        }
+
+        $response = new Response();
+
+        $response->setContent(json_encode(array(
+            'estados' => $estados,
+        )));
+
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+    }
+
+    /**
      * @Route("/new", name="estado_new", methods="GET|POST")
      */
     public function new(Request $request): Response

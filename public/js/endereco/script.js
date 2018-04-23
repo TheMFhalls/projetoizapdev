@@ -9,7 +9,11 @@ function find_by_cep(cep){
             if(data.erro){
                 alert("Informe um CEP válido!");
             }else{
-
+                $.each(data, function(index){
+                    $("input[name='endereco["+index+"]'], "+
+                    "textarea[name='endereco["+index+"]']")
+                        .val(String(this));
+                });
             }
         },
         error: function(xhr, status, error){
