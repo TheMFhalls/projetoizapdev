@@ -13,7 +13,16 @@
     <hr>
 
     <label for="estados">Selecione seu Estado</label>
-    <select name="estados" id="estados"></select>
+    <div class="row">
+        <div class="col-6">
+            <select name="estados" id="estados" onchange="javascript:find_json_cidades($(this));"></select>
+        </div>
+        <div class="col-6">
+            <a href="{{ path("estado_new") }}" class="btn btn-warning">
+                Não achou seu Estado? Clique para cadastrar!
+            </a>
+        </div>
+    </div>
 
     {{ include('endereco/_form.html.twig', {'button_label': 'Cadastrar'}) }}
 

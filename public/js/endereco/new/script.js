@@ -37,7 +37,7 @@ function find_json_estados(){
                 .html("<option>-- Selecione seu estado primeiramente --</option>")
                 .attr("readonly", true);
             $("#estados")
-                .html("<option>-- Selecione seu Estado --</option>");
+                .html("<option value='0'>-- Selecione seu Estado --</option>");
         },
         success: function(data){
             $.each(data.estados, function(){
@@ -48,6 +48,36 @@ function find_json_estados(){
         },
         error: function(xhr, status, error){
             alert("Erro ao buscar os estados!")
+        }
+    });
+}
+
+function find_json_cidades($el){
+    var cidades = $("#endereco_cidade");
+    $.ajax({
+        url: "/cidade/find_json_cidades/"+$el.val(),
+        beforeSend: function(){
+            cidades
+                .html("<option>Carregando...</option>")
+                .attr("readonly", true);
+        },
+        success: function(data){
+            if(data.cidades){
+                cidades.html("");
+                $.each(data.cidades, function(){
+                    var cidade = this;
+                    cidades
+                        .append("<option value='"+cidade.id+"'>"+cidade.nome+"</option>");
+                });
+                cidades.attr("readonly", false)
+            }else{
+                cidades
+                    .html("<option>-- Sem cidades para este estado --</option>")
+                    .attr("readonly", true);
+            }
+        },
+        error: function(xhr, status, error){
+            alert("Erro ao buscar as cidades!")
         }
     });
 }

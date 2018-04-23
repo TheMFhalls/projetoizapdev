@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Cidade;
+use App\Entity\Estado;
 use App\Form\CidadeType;
 use App\Repository\CidadeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -86,5 +87,38 @@ class CidadeController extends Controller
         }
 
         return $this->redirectToRoute('cidade_index');
+    }
+
+    /**
+     * @param Int $id
+     * @Route("/find_json_cidades/{id}", name="find_json_cidades", methods="GET")
+     * @return Response
+     */
+    public function find_json_cidades(Int $id): Response
+    {
+        $estado = $this->getDoctrine()
+            ->getRepository(Estado::class)
+            ->find($id);
+
+        $cidades = false;
+
+        if($estado){
+            foreach($estado->getCidades() as $cidade){
+                $cidades[] = [
+                    "id" => $cidade->getId(),
+                    "nome" => $cidade->getNome()
+                ];
+            }
+        }
+
+        $response = new Response();
+
+        $response->setContent(json_encode(array(
+            'cidades' => $cidades
+        )));
+
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
     }
 }

@@ -6,6 +6,11 @@
     margin-bottom: 10px;
 }
 
+a,
+button{
+    white-space: normal !important;
+}
+
 body{
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
