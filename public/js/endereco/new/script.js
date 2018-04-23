@@ -17,7 +17,7 @@ function find_by_cep(cep){
             }
         },
         error: function(xhr, status, error){
-            alert("Informe seu CEP");
+            alert("Informe seu CEP!");
         },
         complete: function(){
             $("input[type='text'], textarea").each(function(){
@@ -28,3 +28,30 @@ function find_by_cep(cep){
         }
     });
 }
+
+function find_json_estados(){
+    $.ajax({
+        url: "/estado/find_json_estados",
+        beforeSend: function(){
+            $("#endereco_cidade")
+                .html("<option>-- Selecione seu estado primeiramente --</option>")
+                .attr("readonly", true);
+            $("#estados")
+                .html("<option>-- Selecione seu Estado --</option>");
+        },
+        success: function(data){
+            $.each(data.estados, function(){
+                var estado = this;
+                $("#estados")
+                    .append("<option value='"+estado.id+"'>"+estado.nome+"</option>");
+            });
+        },
+        error: function(xhr, status, error){
+            alert("Erro ao buscar os estados!")
+        }
+    });
+}
+
+$(document).ready(function(){
+   find_json_estados();
+});

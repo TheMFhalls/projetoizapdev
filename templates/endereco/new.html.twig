@@ -12,13 +12,16 @@
     </button>
     <hr>
 
+    <label for="estados">Selecione seu Estado</label>
+    <select name="estados" id="estados"></select>
+
     {{ include('endereco/_form.html.twig', {'button_label': 'Cadastrar'}) }}
 
     <a href="{{ path('endereco_index') }}" class="btn btn-warning mt-10">Voltar para a Listagem</a>
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset("js/jquery.mask.js") }}"></script>
-    <script src="{{ asset("js/endereco/script.js") }}"></script>
+    <script src="{{ asset("js/endereco/new/script.js") }}"></script>
     <script>
         $(document).ready(function(){
            $("#find_by_cep").mask("00000000");

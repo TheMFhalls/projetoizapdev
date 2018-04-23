@@ -12,11 +12,11 @@ class EnderecoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('cidade')
             ->add('logradouro')
             ->add('numero')
             ->add('complemento')
             ->add('bairro')
-            ->add('cidade')
         ;
     }
 
